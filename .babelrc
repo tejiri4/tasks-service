@@ -9,7 +9,6 @@
 				"src": "./src",
 				"validations": "./src/validations",
 				"routes": "./src/routes",
-				"db": "./src/db",
 				"config": "./src/config",
 				"models": "./src/models",
 				"controllers": "./src/controllers",

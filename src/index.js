@@ -1,12 +1,13 @@
 import express from 'express';
 import v1Router from 'routes';
-import fetch from 'node-fetch';
+import cors from 'cors';
 
 // the main app
 const app = express() 
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 // handle all error
 app.use((err, req, res, next) => {
@@ -21,14 +22,9 @@ app.use((err, req, res, next) => {
 app.use('/v1', v1Router)
 
 app.get('/', (req, res) => {
-
-  fetch('https://httpbin.org/ip').then(resp => {
-    return res.json();
-  }).then(resp => {
-    res.status(200).json({
-      message: resp
-    }) 
-  })
+  res.status(200).json({
+    message: 'Welcome to Tasks Service.'
+  }) 
 })
 
 // handles route not found

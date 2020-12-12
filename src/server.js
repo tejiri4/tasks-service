@@ -1,4 +1,4 @@
-import { sequelize } from 'models';
+import db from 'models';
 import dotenv from 'dotenv';
 import app from 'src';
 
@@ -8,5 +8,5 @@ dotenv.config();
 // set default to 3000
 const port = process.env.PORT || 3000; 
 
-sequelize.authenticate().then(() => app.listen(port, () => console.log('App listerning on port ' + port)))
+db.sequelize.authenticate().then(() => app.listen(port, () => console.log('App listerning on port ' + port)))
 .catch(err => console.log(err))

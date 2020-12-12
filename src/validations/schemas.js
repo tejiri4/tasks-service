@@ -14,7 +14,7 @@ const updateTaskSchema = Joi.object({
 }).keys(
 	{
 		description: Joi.string(),
-		state: Joi.string().valid('done')
+		state: Joi.string().valid('done','todo')
 	}
 ).or('description', 'state') // At least one of these keys must be in the object to be valid.
 .required()

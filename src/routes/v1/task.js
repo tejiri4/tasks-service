@@ -6,7 +6,7 @@ import { createTask, getUserTasks, updateTask, deleteTask, getTask } from 'contr
 const taskRouter = express.Router();
 
 taskRouter.post('/', validate(taskSchema), createTask)
-taskRouter.patch('/:id', validate(updateTaskSchema), updateTask)
+taskRouter.put('/:id', validate(updateTaskSchema), updateTask)
 taskRouter.get('/:id',validate(idSchema), getTask)
 taskRouter.delete('/:id', validate(idSchema), deleteTask)
 taskRouter.get('/users/:id', validate(idSchema), getUserTasks)

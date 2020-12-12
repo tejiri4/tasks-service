@@ -1,16 +1,16 @@
-import { User , Task } from "models";
+import db from "models";
 import messages from "utils/messages"
 
 const createTask = async (req, res) => {
 	try {
 		// check if user exists
-		const user = await User.findByPk(req.filtered.user_id);
+		const user = await db.User.findByPk(req.filtered.user_id);
 		
 		// check if user exist
 		if(!user) return res.status(400).json({ message: messages.userNotFound });
 
 		// create task
-		const newTask = await Task.create({ ...req.filtered, state: 'task' });
+		const newTask = await db.Task.create({ ...req.filtered, state: 'todo' });
 
 		return res.status(200).json(newTask)
 
@@ -21,9 +21,9 @@ const createTask = async (req, res) => {
 
 const getUserTasks = async (req, res) => {
 	try {
-		const tasks = await Task.findAll({ user_id: req.filtered.id });
+		const { count, rows } = await db.Task.findAndCountAll({ where: { user_id: req.filtered.id } });
 		
-		return res.status(200).json(tasks || [])
+		return res.status(200).json({ count, tasks: rows})
 	} catch(err) {
 		return res.status(500).json({ message: messages.serverError });
 	}
@@ -31,7 +31,7 @@ const getUserTasks = async (req, res) => {
 
 const updateTask = async (req,res) => {
 	try {
-		const task = await Task.findByPk(req.filtered.id);
+		const task = await db.Task.findByPk(req.filtered.id);
 
 		if(!task) return res.status(400).json({ message: messages.taskNotFound  });
 
@@ -45,7 +45,7 @@ const updateTask = async (req,res) => {
 
 const deleteTask = async (req, res) => {
 	try {
-		const task = await Task.findByPk(req.filtered.id);
+		const task = await db.Task.findByPk(req.filtered.id);
 
 		if(!task) return res.status(400).json({ message: messages.taskNotFound  });
 
@@ -59,7 +59,7 @@ const deleteTask = async (req, res) => {
 
 const getTask = async (req, res) => {
 	try {
-		const task = await Task.findByPk(req.filtered.id);
+		const task = await db.Task.findByPk(req.filtered.id);
 		
 		if(!task) return res.status(400).json({ message: messages.taskNotFound  });
 
