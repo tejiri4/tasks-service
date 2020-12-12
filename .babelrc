@@ -1,0 +1,22 @@
+{
+	"presets": [
+		"@babel/preset-env"
+	],
+	"plugins": [
+		["module-resolver", {
+			"root": ["./src"],
+			"alias": {
+				"src": "./src",
+				"validations": "./src/validations",
+				"routes": "./src/routes",
+				"db": "./src/db",
+				"config": "./src/config",
+				"models": "./src/models",
+				"controllers": "./src/controllers",
+				"utils": "./src/utils",
+				"tests": "./src/tests"
+			}
+		}],
+		"@babel/plugin-transform-runtime"
+	]
+}
