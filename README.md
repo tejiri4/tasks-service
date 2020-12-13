@@ -31,6 +31,8 @@ Start app by running the dev script below.
 
 ## Architectural Diagram
 
+<img src="https://res.cloudinary.com/store-manager/image/upload/v1607846407/Users_Tasks_Diagram_Flow.svg">
+
 ## Built With
 Nodejs
 MySQL
