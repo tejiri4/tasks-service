@@ -19,7 +19,7 @@ An api microservice for handling task allocation to users.
 To install and run this project you would need to have nodejs installed and a mysql database 
 
 Clone this repository into your local machine:
-```e.g git clone https://github.com/tobslob/users-task-backend.git```
+```e.g git clone https://github.com/tejiri4/tasks-service.git```
 
 Install dependencies
 ```e.g yarn install```
