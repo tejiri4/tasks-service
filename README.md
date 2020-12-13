@@ -4,7 +4,7 @@ An api microservice for handling task allocation to users.
 
 ## Table of Content
 - Getting Started
-- 
+
 - Architectural Diagram
 
 - Built With
